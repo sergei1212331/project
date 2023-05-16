@@ -1,27 +1,33 @@
 ﻿using System;
-using System.Text;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        Console.Write("Введіть перше слово: ");
-        string word1 = Console.ReadLine();
+        int[] arr = { 1, 2, 3, 4, 5, 6 };
+        int sum = 0;
 
-        Console.Write("Введіть друге слово: ");
-        string word2 = Console.ReadLine();
+        Console.WriteLine("Original array: [{0}]", string.Join(", ", arr));
 
-        StringBuilder result = new StringBuilder();
-
-        foreach (char letter in word1)
+        // Compute the sum of the middle elements
+        for (int i = 1; i < arr.Length - 1; i++)
         {
-            if (word2.Contains(letter))
-            {
-                result.Append(letter);
-            }
+            sum += arr[i];
         }
 
-        Console.WriteLine("Літери, які є в обох словах: " + result);
-        Console.ReadKey();
+        // Divide the sum by 2 and update the array
+        int middleSum = sum / 2;
+        for (int i = 1; i < arr.Length - 1; i++)
+        {
+            arr[i] = middleSum;
+        }
+
+        Console.WriteLine("Array after replacement: [{0}]", string.Join(", ", arr));
     }
 }
+
+
+
+
+
+
